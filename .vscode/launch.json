@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootBookApisApplication<SpringBootBookApis>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.apis.book.SpringBootBookApis.SpringBootBookApisApplication",
+            "projectName": "SpringBootBookApis",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
