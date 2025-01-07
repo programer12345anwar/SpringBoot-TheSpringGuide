@@ -25,6 +25,7 @@ public class BookService {
     //to get single book by id
     public Book getSingleBook(int id){
         // return books.stream().filter(book->book.getId()==id).findFirst().get();//most used from java8
+        // return books.stream().filter(book->book.getId()==id).findFirst().orElse(null);
         for(Book book:books){
             if(book.getId()==id){
                 return book;
