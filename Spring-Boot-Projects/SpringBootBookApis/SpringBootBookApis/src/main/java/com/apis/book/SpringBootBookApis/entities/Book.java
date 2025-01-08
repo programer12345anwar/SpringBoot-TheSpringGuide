@@ -1,8 +1,21 @@
 package com.apis.book.SpringBootBookApis.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "books")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    //@Column(name="book_title")
     private String title;
+    //@Column(name="book_author")
     private String author;
 
     public Book(int id, String title, String author) {
