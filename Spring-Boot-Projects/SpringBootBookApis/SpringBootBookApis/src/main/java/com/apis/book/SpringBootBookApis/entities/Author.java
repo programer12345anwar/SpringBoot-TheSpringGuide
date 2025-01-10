@@ -1,10 +1,13 @@
 package com.apis.book.SpringBootBookApis.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +26,9 @@ public class Author {
 
     private String language;
 
+    @OneToOne(mappedBy = "author")
+    @JsonBackReference
+    private Book book;
 
 
     public Author(int authorId, String firstName, String lastName, String language) {
@@ -77,6 +83,16 @@ public class Author {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    public Book getBook() {
+        return this.book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    
 
 
 }

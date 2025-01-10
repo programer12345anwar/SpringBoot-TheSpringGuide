@@ -1,5 +1,8 @@
 package com.apis.book.SpringBootBookApis.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +21,9 @@ public class Book {
 
     private String title;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL) // Automatically persist, merge, and remove related Author
     @JoinColumn(name = "author_id") // Specifies the foreign key column in the 'books' table
+    @JsonManagedReference
     private Author author;
 
     public Book(int id, String title, Author author) {
