@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.apis.book.SpringBootBookApis.helper.FileUploadHelper;
 
@@ -28,12 +29,22 @@ public class FileUploadController {
 
             // Check file content type
             String contentType = file.getContentType();
-            
+            /*JPEG images (.jpg, .jpeg with MIME type image/jpeg).
+            PNG images (.png with MIME type image/png). */
+            // if (contentType == null || 
+            //     (!contentType.equals("image/jpeg") && !contentType.equals("image/png"))) {
+            //     return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            //             .body("Invalid file type. Please upload a JPG or PNG file.");
+            // }
+            //=====================================================
             if (contentType == null || 
-                (!contentType.equals("image/jpeg") && !contentType.equals("image/png"))) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body("Invalid file type. Please upload a JPG or PNG file.");
-            }
+            (!contentType.equals("image/jpeg")  )) {
+                //Here only .jpg and .jpeg files are allowed,.png files are not allowed
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Invalid file type. Please upload a image/jpg file. that means only .jpg and .jpeg files are allowed.");
+        }
+            //=====================================================
+
             /*!contentType.equals("image/jpg") && !contentType.equals("image/png")
             Purpose: Validates whether the file's MIME type matches either image/jpg (for JPG files) or image/png (for PNG files).
 
@@ -50,8 +61,11 @@ public class FileUploadController {
             // File upload logic
             boolean isUploaded = fileUploadHelper.upLoadFile(file);
             if (isUploaded) {
-                return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
+                // return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
+
+                return  ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/image/").path(file.getOriginalFilename()).toUriString());
             } else {
+                System.out.println("Error uploading file. Something went wrong!");
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                         .body("Error uploading file. Something went wrong!");
             }
