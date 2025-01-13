@@ -17,30 +17,43 @@ public class FileUploadController {
     @Autowired
     private FileUploadHelper fileUploadHelper;
 
-    @SuppressWarnings("null")
     @PostMapping("/upload-file")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             // Validation: Check if the file is empty
             if (file.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("File is empty");
-            }
-
-            // Restrict file upload type
-            if (!file.getContentType().equals("image/jpeg") && !file.getContentType().equals("image/png")) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body("File type is not allowed, please upload a JPEG or PNG file");
+                        .body("File is empty. Please upload a valid file.");
             }
 
-            System.out.println("File Content Type: " + file.getContentType());
+            // Check file content type
+            String contentType = file.getContentType();
+            
+            if (contentType == null || 
+                (!contentType.equals("image/jpeg") && !contentType.equals("image/png"))) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Invalid file type. Please upload a JPG or PNG file.");
+            }
+            /*!contentType.equals("image/jpg") && !contentType.equals("image/png")
+            Purpose: Validates whether the file's MIME type matches either image/jpg (for JPG files) or image/png (for PNG files).
 
-            // File upload code
+            contentType.equals("image/jpg") checks if the file is a JPG image.
+            contentType.equals("image/png") checks if the file is a PNG image.
+            The ! negation means "if it's not this type."
+            Logical Operator &&:
+
+            Combines the two conditions:
+            The file is not a JPEG.
+            The file is not a PNG.
+            If both conditions are true (meaning the file is neither a JPG nor a PNG), the if block executes.  */
+
+            // File upload logic
             boolean isUploaded = fileUploadHelper.upLoadFile(file);
             if (isUploaded) {
                 return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
             } else {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                        .body("Error uploading file, something went wrong!");
+                        .body("Error uploading file. Something went wrong!");
             }
 
         } catch (Exception e) {
@@ -50,6 +63,7 @@ public class FileUploadController {
         }
     }
 }
+
 
 /* 
 package com.apis.book.SpringBootBookApis.controller;
