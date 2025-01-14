@@ -8,6 +8,7 @@ public class ThymeleafPracticeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ThymeleafPracticeApplication.class, args);
+		//it's a main class
 	}
 
 }
