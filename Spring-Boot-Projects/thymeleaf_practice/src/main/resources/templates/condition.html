@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>condition</title>
+</head>
+<body>
+	<h1 style="text-align:center; color: blue;font-weight: bold;">this is conditional handler</h1>
+	<h2>User is <span th:style="${isActive}?'color:green':'color:red'" th:text="${isActive}?'ACTIVE':'NOT ACTIVE'"></span></h2>
+	
+</body>
+</html> 	

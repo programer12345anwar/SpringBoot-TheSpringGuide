@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<h1>goining to traverse elements of collection</h1>
+	<h3 th:text="${names}"></h3>
+	<h2>testing</h2>
+	<ul>
+		<li th:each="n,status:${names}">
+			<!-- since list item is going to iterate --> <!-- now print the each n of the list -->
+			<!-- <span th:text="${status.index}+' '+ ${n}"></span> -->
+			<span th:style="${status.odd}?' color:red;font-weight:bold;' :'color:blue' " th:text="${status.index+1}+' '+ ${n}"></span>
+		</li>
+	</ul>
+</body>
+</html>

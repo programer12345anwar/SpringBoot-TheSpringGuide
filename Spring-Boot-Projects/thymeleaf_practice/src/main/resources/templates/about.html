@@ -1,11 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!-- xmlns->xml name space -->
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
 </head>
 <body>
-	<h1>About Learn code with anwar</h1>
+	<h1>Learn code with anwar</h1>
 	<h1>we are learning spring boot</h1>
+	 
+	<h1 th:text="${ #strings.toUpperCase(name) }"></h1>
+	 <p>length of the name is <span th:text="${#strings.length(name)}"></span></p>
+	<!-- <h1 th:text="${ #strings. }"></h1> -->
+	<h2 th:text="${currentDate}"></h2>
+	<h2 th:align="center">hello this is <span th:text="${name}"></span> and i am from bgs</h2>
+	<!-- there are n number of functionality of array ,string you can use here ,but for that you need to stat with # -->
+	<!-- <p>we are capitalizing the name: <span th:text="${#}"></span></p> -->
+	<h3 th:text=" 'sum of ' +${a}+ ' and '+${b}+ ' is :'+${a+b} "></h3>
 </body>
 </html>
