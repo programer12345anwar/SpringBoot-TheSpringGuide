@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>services</title>
+</head>
+<body>
+	<!-- this is header section -->
+	<h2 style="text-align: center; color: blue; font-weight: bold;">this
+		is service page</h2>
+
+	<!-- this is body section -->
+	<p>**"Hello, my name is Md Anwar Alam, and I am a passionate Java
+		Full Stack Developer currently pursuing my B.Tech degree. With
+		expertise in Java, Spring Boot, React, and other modern technologies,
+		I specialize in building robust and scalable applications. Over time,
+		I have worked on a variety of projects, including an E-commerce
+		platform, a Hotel Management System, and a Student Management System.
+
+		In addition to backend development, I have experience with frontend
+		technologies such as React, Tailwind CSS, and Bootstrap. I am also
+		proficient in using tools like IntelliJ IDEA, Git, and MySQL for
+		seamless development and version control. Currently, I am exploring AI
+		technologies and working on exciting projects like an AI Interviewer
+		and a Code Document Builder. My goal is to grow as a Java developer
+		and contribute to innovative solutions in the tech world. Outside of
+		coding, I enjoy continuous learning and problem-solving to stay
+		updated with the latest industry trends."**</p>
+
+	<!-- This is the footer section -->
+	<footer id="hostTag"
+		th:replace="footer :: footer1(title=${title}, subtitle=${subtitle})">
+		<!-- explore replace,insert,include -->
+		<!-- This will replace the current footer with the fragment from footer.html -->
+	</footer>
+
+
+
+</body>
+</html>

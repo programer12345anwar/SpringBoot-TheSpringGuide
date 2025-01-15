@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+<head>
+	<meta charset="UTF-8" />
+	<title>base page</title>
+	<link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+	<!-- this is header section -->
+	<h1>this is my static header</h1>
+	<!-- end of the header section -->
+	
+	
+	<!-- this is body section -->
+	<h2>this is my static body</h2>
+	<div th:replace="${content}"></div>
+	<!-- end of the body section -->
+	
+	
+	<!-- this is footer section -->
+	<h3>this is static footer</h3>
+	<!-- end of the footer section -->
+</body>
+</html>

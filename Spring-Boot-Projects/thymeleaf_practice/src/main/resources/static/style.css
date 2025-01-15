@@ -1,0 +1,10 @@
+body{
+	background-color: gray;
+	border:2px red;
+}
+
+section{
+	background-color: blue;
+	color:white;
+	padding:30px;
+}

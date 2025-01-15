@@ -1,5 +1,7 @@
 package com.thymeleaf.Controller;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +47,36 @@ public class MyControler {
 		 
 		model.addAttribute("isActive",true);//here isactive used as a key ,if you want to use as a variable ,for that first declare and then directly use without double quote
 		model.addAttribute("gender", "F");
+		
+		List<Integer> list=List.of(233);
+		model.addAttribute("myList", list);
+		
 		return "condition";//condition.html
 	}
+	
+	//handler for including fragment
+	
+	@GetMapping("/services")
+	public String serviceHandler(Model model) {
+		System.out.println("this is service");
+		model.addAttribute("title","i like to eat mango");
+		model.addAttribute("subtitle",LocalDateTime.now().toString());
+		return "service";//service.html page will be searched and loaded if not then resource not found exception
+	}
+	
+	//for new about
+	@GetMapping("/newabout")
+	public String newAbout() {
+		
+		return "newAbout";
+	}
+	
+	//for contact
+		@GetMapping("/contact")
+		public String contact() {
+			
+			return "contact";
+		}
+
 
 }

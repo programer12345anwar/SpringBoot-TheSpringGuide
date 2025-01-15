@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>footer</title>
+</head>
+<body>
+	<h2 style="text-align: center; color: yellow;">this is footer
+		template</h2>
+	<footer style="background-color: black;color: white" id="fragmentTag" th:fragment="footer1(title,subtitle)"><!-- now it's became fragment -->
+		<div class="container">
+			<h1 th:text="${title}"></h1>
+			 <h3 th:text="${subtitle}"></h3>
+			<h1>this is footer for anwar application</h1>
+			<h2>footer tag is used for the giving information about the
+				application and ownership</h2>
+			<h3>feel free to conect and donate or give ideas</h3>
+			<p style="text-align: center; color: pink; font-weight: bold;">This
+				is md anwar alam ,from anwar education trust ,our aim is to provide
+				education to the student who are deprived of education</p>
+
+		</div>
+	</footer>
+</body>
+</html>

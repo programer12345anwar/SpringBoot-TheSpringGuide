@@ -1,18 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<title>condition</title>
+<meta charset="UTF-8" />
+<title>condition</title>
 </head>
 <body>
-	<h1 style="text-align:center; color: blue;font-weight: bold;">this is conditional handler</h1>
-	<h2>User is <span th:style="${isActive}?'color:green':'color:red'" th:text="${isActive}?'ACTIVE':'NOT ACTIVE'"></span></h2>
-	
-	
-	<h1 th:if="${gender}=='M' ">Male</h1><!-- if it will be true then only will be executed -->
+	<h1 style="text-align: center; color: blue; font-weight: bold;">this
+		is conditional handler</h1>
+	<h2>
+		User is <span th:style="${isActive}?'color:green':'color:red'"
+			th:text="${isActive}?'ACTIVE':'NOT ACTIVE'"></span>
+	</h2>
+
+
+	<h1 th:if="${gender}=='M' ">Male</h1>
+	<!-- if it will be true then only will be executed -->
 	<h1>Female</h1>
-	
-	<h1 style="color: red" th:if="${gender}=='M'">Male(work just like if-else)</h1>
-	<h1 style="color:green;" th:unless="${gender}=='M'">Female</h1><!-- if not true then will executed -->
+
+	<h1 style="color: red" th:if="${gender}=='M'">Male(work just like
+		if-else)</h1>
+	<h1 style="color: green;" th:unless="${gender}=='M'">Female</h1>
+	<!-- if not true then will executed -->
+
+	<div th:switch="${#lists.size(myList)}">
+		<h1 th:case="'0'">List contain zero element</h1>
+		<h2 th:case="'1'">List containing one element</h2>
+		<h1 th:case="*">List containing default elements</h1>
+	</div>
+	<h1 style="color: green;font-weight: bold;text-align: center;">for testing purposes</h1>
 </body>
-</html> 	
+</html>
