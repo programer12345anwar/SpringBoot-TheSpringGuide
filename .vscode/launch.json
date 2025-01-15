@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SpringvalidationApplication",
+            "request": "launch",
+            "mainClass": "com.springvalidation.SpringvalidationApplication",
+            "projectName": "springvalidation"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringBootBookApisApplication<SpringBootBookApis>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
