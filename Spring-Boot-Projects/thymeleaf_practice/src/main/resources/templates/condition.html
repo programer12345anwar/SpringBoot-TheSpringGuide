@@ -8,5 +8,11 @@
 	<h1 style="text-align:center; color: blue;font-weight: bold;">this is conditional handler</h1>
 	<h2>User is <span th:style="${isActive}?'color:green':'color:red'" th:text="${isActive}?'ACTIVE':'NOT ACTIVE'"></span></h2>
 	
+	
+	<h1 th:if="${gender}=='M' ">Male</h1><!-- if it will be true then only will be executed -->
+	<h1>Female</h1>
+	
+	<h1 style="color: red" th:if="${gender}=='M'">Male(work just like if-else)</h1>
+	<h1 style="color:green;" th:unless="${gender}=='M'">Female</h1><!-- if not true then will executed -->
 </body>
 </html> 	

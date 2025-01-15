@@ -1,16 +1,11 @@
 package com.thymeleaf.Controller;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.objenesis.instantiator.basic.NewInstanceInstantiator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
  
 
@@ -49,6 +44,7 @@ public class MyControler {
 		
 		 
 		model.addAttribute("isActive",true);//here isactive used as a key ,if you want to use as a variable ,for that first declare and then directly use without double quote
+		model.addAttribute("gender", "F");
 		return "condition";//condition.html
 	}
 
