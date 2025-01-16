@@ -1,8 +1,12 @@
 package com.springvalidation.entities;
- 
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class FormData {
+
+    @NotBlank(message="User name con't be empty")
+    @Size(min=3, max=10, message="User name must be between 3 and 10 characters")
     private String userName;
     private String email;
 

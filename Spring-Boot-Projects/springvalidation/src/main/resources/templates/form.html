@@ -14,6 +14,7 @@
       <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
           <form th:action="@{/process}" method="post" th:object="${formData}">
+            <h3 class="text-center  ">Signup Here</h3>
             <div class="mb-3 form-group">
               <label for="userName" class="form-label">User Name</label>
               <input
@@ -24,6 +25,7 @@
                 id="userName"
                 placeholder="Enter your name"
               />
+              <p th:each="error : ${#fields.errors('userName')}" th:text="${error}"></p>
             </div>
 
             <div class="mb-3">
