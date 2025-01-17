@@ -4,20 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springvalidation.entities.FormData;
 
 import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 @Controller
 public class FormController {
 
     @GetMapping("/form")
     public String showForm(Model model) {
-        System.out.println("form opening");
+        System.out.println("opening form");
         model.addAttribute("formData", new FormData());
         return "form"; // form.html
     }
