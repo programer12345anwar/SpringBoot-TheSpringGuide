@@ -1,4 +1,4 @@
-package com.thymeleaf.Controller;
+package com.thymeleaf.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
